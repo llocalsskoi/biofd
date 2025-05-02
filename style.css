@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto Mono', monospace;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: black;
+  color: white;
+}
+
+/* Видео фон с анимацией */
+#bg-video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.5) blur(2px);
+  animation: fadeInVideo 2s ease-in-out;
+}
+
+@keyframes fadeInVideo {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Карточка с анимацией */
+.card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  backdrop-filter: blur(10px);
+  padding: 2rem 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  text-align: center;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  animation: fadeInScale 1s ease forwards;
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+@keyframes fadeInScale {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.card h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px black;
+  animation: fadeInText 1.2s ease-in-out;
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.info {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  text-shadow: 1px 1px 2px black;
+  animation: fadeInText 1.4s ease-in-out;
+}
+
+.info span {
+  color: #ffde59;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
+  transition: transform 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.info span:hover {
+  transform: scale(1.1);
+  color: #fff176;
+}
+
+/* Рамка и стили для блока с навыками */
+.skills-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  color: white;
+  margin-top: 20px; /* Отступ сверху для разделения */
+  animation: fadeInSkills 1.2s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInSkills {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.skills-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.skills-card ul {
+  list-style: none;
+  padding-left: 0;
+  display: inline-block;
+  text-align: left;
+}
+
+.skills-card li {
+  margin: 5px 0;
+  padding-left: 20px;
+  position: relative;
+  opacity: 0;
+  animation: fadeInSkillsList 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeInSkillsList {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.skills-card li:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.skills-card li:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.skills-card li:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.skills-card li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #ffde59;
+  font-weight: bold;
+}
